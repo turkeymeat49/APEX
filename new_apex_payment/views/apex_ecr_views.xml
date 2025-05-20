@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu Root -->
+    <record id="menu_apex_ecr_root" model="ir.ui.menu">
+        <field name="name">Apex ECR</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Config Menu and Views -->
+    <record id="menu_apex_ecr_config" model="ir.ui.menu">
+        <field name="name">Configurations</field>
+        <field name="parent_id" ref="menu_apex_ecr_root"/>
+        <field name="sequence">10</field>
+    </record>
+    <record id="view_apex_ecr_config_tree" model="ir.ui.view">
+        <field name="name">apex.ecr.config.tree</field>
+        <field name="model">apex.ecr.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="wsdl_url"/>
+                <field name="tid"/>
+                <field name="mid"/>
+                <field name="currency_code"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_apex_ecr_config_form" model="ir.ui.view">
+        <field name="name">apex.ecr.config.form</field>
+        <field name="model">apex.ecr.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="wsdl_url"/>
+                        <field name="tid"/>
+                        <field name="mid"/>
+                        <field name="secure_key" password="True"/>
+                        <field name="currency_code"/>
+                        <field name="tiller_username"/>
+                        <field name="tiller_fullname"/>
+                        <field name="soap_action"/>
+                        <field name="endpoint_url"/>
+                        <field name="api_key"/>
+                        <field name="client_id"/>
+                        <field name="client_secret" password="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_apex_ecr_config" model="ir.actions.act_window">
+        <field name="name">Apex ECR Configurations</field>
+        <field name="res_model">apex.ecr.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="menu_apex_ecr_config_action" model="ir.ui.menu">
+        <field name="name">Configurations</field>
+        <field name="parent_id" ref="menu_apex_ecr_config"/>
+        <field name="action" ref="action_apex_ecr_config"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Transaction Menu and Views -->
+    <record id="menu_apex_ecr_transaction" model="ir.ui.menu">
+        <field name="name">Transactions</field>
+        <field name="parent_id" ref="menu_apex_ecr_root"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="view_apex_ecr_transaction_tree" model="ir.ui.view">
+        <field name="name">apex.ecr.transaction.tree</field>
+        <field name="model">apex.ecr.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="config_id"/>
+                <field name="amount"/>
+                <field name="invoice_number"/>
+                <field name="reference_number"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_apex_ecr_transaction_form" model="ir.ui.view">
+        <field name="name">apex.ecr.transaction.form</field>
+        <field name="model">apex.ecr.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="config_id"/>
+                        <field name="amount"/>
+                        <field name="invoice_number"/>
+                        <field name="reference_number"/>
+                        <field name="status"/>
+                        <field name="response_message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_apex_ecr_transaction" model="ir.actions.act_window">
+        <field name="name">Apex ECR Transactions</field>
+        <field name="res_model">apex.ecr.transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="menu_apex_ecr_transaction_action" model="ir.ui.menu">
+        <field name="name">Transactions</field>
+        <field name="parent_id" ref="menu_apex_ecr_transaction"/>
+        <field name="action" ref="action_apex_ecr_transaction"/>
+        <field name="sequence">20</field>
+    </record>
+</odoo> 

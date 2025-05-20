@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_ecr_transaction" model="ir.sequence">
+        <field name="name">ECR Transaction</field>
+        <field name="code">ecr.transaction</field>
+        <field name="prefix">ECR-TXN-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
